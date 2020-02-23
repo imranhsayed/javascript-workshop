@@ -39,20 +39,20 @@
 // myFather.sayHello();
 
 // Arrays;
-let post = [
-	{
-		id: 1,
-		name: 'Sim',
-	},
-	{
-		id: 2,
-		name: 'Candice'
-	},
-	{
-		id: 3,
-		name: 'Julia'
-	},
-];
+// let post = [
+// 	{
+// 		id: 1,
+// 		name: 'Sim',
+// 	},
+// 	{
+// 		id: 2,
+// 		name: 'Candice'
+// 	},
+// 	{
+// 		id: 3,
+// 		name: 'Julia'
+// 	},
+// ];
 
 // post.forEach( function ( item, index ) {
 // 	console.warn( item.name );
@@ -99,16 +99,14 @@ let post = [
 
 // Statements
 
-let name = 'Imran';
-
-function addNumbers( numOne, numTwo ) {
-	return numOne + numTwo;
-}
-
-const addedNum = addNumbers( 2, 3 );
-console.warn( addedNum );
+// let name = 'Imran';
+//
+// function addNumbers( numOne, numTwo ) {
+// 	return numOne + numTwo;
+// }
+//
+// const addedNum = addNumbers( 2, 3 );
 
 // Expressions
 
 // Keywords
-
