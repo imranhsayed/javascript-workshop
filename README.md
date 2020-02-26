@@ -1,3 +1,3 @@
 # javascript-workshop
 
-JavaScript Concepts
+JavaScript Concepts.
