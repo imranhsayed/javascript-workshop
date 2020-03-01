@@ -4,5 +4,5 @@ JavaScript Concepts.
 
 ## JavaScript game 
 
-###DEMO
-![](game-demo.gif)
+### DEMO
+![](demo.gif)
