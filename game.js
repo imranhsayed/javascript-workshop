@@ -27,8 +27,9 @@ class Game {
 		this.containerHeight = this.container.offsetHeight;
 		this.score = 0;
 		this.missedCount = 0;
-		this.ballCount = 50;
-		this.dropBallSpeed = 0.5;
+		this.ballCount = 1000;
+		this.dropBallSpeed = 0.5; // At what speed the balls should drop.
+		this.dropBallFrequency = 500; // At what intervals next ball should drop after the previous one.
 		this.shootEvent = 'mouseover'; // can choose what you like, for tutorial 'click' is used, but mouseover is better.
 
 	}
@@ -46,13 +47,13 @@ class Game {
 
 		for( let i = 0; i < this.ballCount; i++  ) {
 
-			const ballEl = this.createBall();
 			const leftPos = this.getRandomNo( 1000 );
 			const endPos = this.containerHeight + 50;
-			let intervalTime = this.getRandomNo( 100 ) + ( i * 1000 );
+			let intervalTime = this.getRandomNo( 100 ) + ( i * this.dropBallFrequency );
 
 
 			const interval = setInterval( () => {
+				const ballEl = this.createBall();
 				this.dropBall( ballEl, leftPos, endPos );
 				clearInterval( interval );
 			}, intervalTime )
