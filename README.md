@@ -1,10 +1,10 @@
-# javascript-workshop
+# JavaScript Workshop :fire:
 
 JavaScript Concepts.
 
 ## JavaScript game 
 
-### DEMO
+### [LIVE DEMO](https://codeytek.com/javascript-workshop/)
 ![](games-demo.gif)
 
 ## Optimum game setting for max fun.
