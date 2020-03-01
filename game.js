@@ -12,6 +12,28 @@ class Game {
 	}
 
 	/**
+	 * Initialize.
+	 *
+	 * @return {void}
+	 */
+	init() {
+		this.container = document.getElementById( 'container' );
+		this.scoreEl = document.getElementById( 'score' );
+		this.missedScoreEl = document.getElementById( 'missed-score' );
+		this.shootingAudio = document.getElementById( 'shooting-audio' );
+		this.missedAudio = document.getElementById( 'missed-audio' );
+		this.backgroundMusic = document.getElementById( 'background-music' );
+		this.startBtnEl = document.getElementById( 'start-game' );
+		this.containerHeight = this.container.offsetHeight;
+		this.score = 0;
+		this.missedCount = 0;
+		this.ballCount = 50;
+		this.dropBallSpeed = 0.5;
+		this.shootEvent = 'mouseover'; // can choose what you like, for tutorial 'click' is used, but mouseover is better.
+
+	}
+
+	/**
 	 * Start game
 	 *
 	 * @return {void}
@@ -39,27 +61,6 @@ class Game {
 	}
 
 	/**
-	 * Initialize.
-	 *
-	 * @return {void}
-	 */
-	init() {
-		this.container = document.getElementById( 'container' );
-		this.scoreEl = document.getElementById( 'score' );
-		this.missedScoreEl = document.getElementById( 'missed-score' );
-		this.shootingAudio = document.getElementById( 'shooting-audio' );
-		this.missedAudio = document.getElementById( 'missed-audio' );
-		this.backgroundMusic = document.getElementById( 'background-music' );
-		this.startBtnEl = document.getElementById( 'start-game' );
-		this.containerHeight = this.container.offsetHeight;
-		this.score = 0;
-		this.missedCount = 0;
-		this.ballCount = 30;
-		this.dropBallSpeed = 1;
-
-	}
-
-	/**
 	 * Create ball.
 	 *
 	 * @return {Object} {HTMLDivElement} ballEl Ball element.
@@ -71,7 +72,7 @@ class Game {
 		ballEl.classList.add( 'ball' );
 		ballEl.textContent = points.toString();
 		ballEl.setAttribute( 'data-points', points );
-		ballEl.addEventListener( 'click', ( event ) => this.shootBall( event ) );
+		ballEl.addEventListener( this.shootEvent, ( event ) => this.shootBall( event ) );
 
 		this.container.appendChild( ballEl );
 

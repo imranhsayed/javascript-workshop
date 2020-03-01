@@ -18,7 +18,7 @@ body {
 .ball {
 	width: 100px;
 	height: 100px;
-	top: -120px;
+	top: -200px;
 	border-radius: 50%;
 	background-color: hotpink;
 	position: absolute;
@@ -36,10 +36,12 @@ body {
 	text-transform: uppercase;
 	letter-spacing: 3px;
 	position: absolute;
-	top: 16px;
+	top: 50px;
 	z-index: 1;
 	font-weight: bold;
-	width: 100%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 200px;
 }
 
 .score-wrap {
@@ -86,4 +88,42 @@ body {
 	text-transform: uppercase;
 	border-radius: 3px;
 	cursor: pointer;
+}
+
+/*
+ * Ball style override to beautify it, can be removed.
+ */
+.ball {
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+
+	-webkit-box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2), inset 0px 10px 30px 5px rgba(255, 255, 255, 1);
+	-moz-box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2), inset 0px 10px 30px 5px rgba(255, 255, 255, 1);
+	box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2), inset 0px 10px 30px 5px rgba(255, 255, 255, 1);
+
+	height: 100px;
+	position: absolute;
+	width: 100px;
+}
+
+.ball:after {
+	background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 70%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,0.5)), color-stop(70%,rgba(255,255,255,0)));
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 70%);
+	background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 70%);
+	background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 70%);
+	background: radial-gradient(ellipse at center, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 40%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80ffffff', endColorstr='#00ffffff',GradientType=1 );
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	-webkit-box-shadow: inset 0 20px 30px rgba(255, 255, 255, 0.3);
+	-moz-box-shadow: inset 0 20px 30px rgba(255, 255, 255, 0.3);
+	box-shadow: inset 0 20px 30px rgba(255, 255, 255, 0.3);
+	content: "";
+	height: 100px;
+	left: 0;
+	position: absolute;
+	width: 100px;
 }
