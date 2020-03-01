@@ -5,16 +5,34 @@
 	<meta name="viewport"
 	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
+	<title>Ball Game</title>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="container" class="game-area"></div>
 <div class="score-container">
-	Score:
-	<span id="score"></span>
+	<div class="score-wrap" >
+		<p>Score: <span id="score" class="score">0</span></p>
+		<p>Missed: <span id="missed-score" class="missed-score">0</span></p>
+	</div>
 </div>
+<div id="container" class="game-area"></div>
+
+
+<audio id="shooting-audio">
+	<source src="sound/shooting.mp3" type="audio/mp3">
+	Your browser does not support the audio element.
+</audio>
+
+<audio id="lost-audio">
+	<source src="sound/missed.mp3" type="audio/mp3">
+	Your browser does not support the audio element.
+</audio>
+
+<audio id="background-music">
+	<source src="sound/game-background.mp3" type="audio/mp3">
+	Your browser does not support the audio element.
+</audio>
 
 <script src="javascript.js"></script>
 <script src="dom.js"></script>

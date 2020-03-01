@@ -1,3 +1,6 @@
+body {
+	margin: 0;
+}
 
 .hide {
 	display: none;
@@ -5,18 +8,19 @@
 
 .game-area {
 	border: 1px solid grey;
-	height: 50vh;
+	height: 100vh;
 	position: relative;
 	overflow: hidden;
+	background: url("game-background.jpg");
+	background-size: cover;
 }
 
 .ball {
 	width: 100px;
 	height: 100px;
-	/*top: -100px;*/
+	top: -120px;
 	border-radius: 50%;
 	background-color: hotpink;
-	border: 2px solid blueviolet;
 	position: absolute;
 	display: flex;
 	justify-content: center;
@@ -24,4 +28,48 @@
 	font-size: 20px;
 	color: white;
 	cursor: pointer;
+}
+
+.score-container {
+	text-align: center;
+	font-size: 16px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	position: absolute;
+	top: 16px;
+	z-index: 1;
+	font-weight: bold;
+	width: 100%;
+}
+
+.score-wrap {
+	background: rgba( 0, 0, 0, 0.8 );
+	color: #fff;
+	width: 200px;
+	padding: 16px 0;
+	border-radius: 10px;
+	display: inline-flex;
+	flex-direction: column;
+}
+
+.score-wrap p {
+	margin: 0;
+	padding: 0;
+	justify-content: center;
+	align-items: center;
+}
+
+.score-wrap p:last-child {
+	padding-top: 4px;
+	font-size: 12px;
+	text-align: center;
+}
+
+.missed-score {
+	color: red;
+	font-size: 16px;
+}
+
+.score {
+	color: chartreuse;
 }
