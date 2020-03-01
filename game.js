@@ -1,23 +1,26 @@
 class Game {
+
+	/**
+	 * Constructor.
+	 *
+	 * @return {void}
+	 */
 	constructor() {
-		document.body.click();
 		this.init();
+		this.startBtnEl.addEventListener( 'click', () => this.startGame() );
+
 	}
 
-	init() {
-		this.container = document.getElementById( 'container' );
-		this.scoreEl = document.getElementById( 'score' );
-		this.missedScoreEl = document.getElementById( 'missed-score' );
-		this.shootingAudio = new Audio('./sound/shooting.mp3');
-		this.missedAudio = new Audio('./sound/missed.mp3');
-		this.backgroundMusic = new Audio('./sound/game-background.mp3');
-		this.containerHeight = this.container.offsetHeight;
-		this.score = 0;
-		this.missedCount = 0;
-		this.ballCount = 30;
-		this.dropBallSpeed = 1;
+	/**
+	 * Start game
+	 *
+	 * @return {void}
+	 */
+	startGame() {
 
 		this.backgroundMusic.play();
+		this.startBtnEl.removeEventListener( 'click', this.startGame );
+		this.startBtnEl.remove();
 
 		for( let i = 0; i < this.ballCount; i++  ) {
 
@@ -28,15 +31,39 @@ class Game {
 
 
 			const interval = setInterval( () => {
-				this.dropBall( ballEl, leftPos, endPos, this.dropBallSpeed );
+				this.dropBall( ballEl, leftPos, endPos );
 				clearInterval( interval );
 			}, intervalTime )
 
 		}
+	}
 
+	/**
+	 * Initialize.
+	 *
+	 * @return {void}
+	 */
+	init() {
+		this.container = document.getElementById( 'container' );
+		this.scoreEl = document.getElementById( 'score' );
+		this.missedScoreEl = document.getElementById( 'missed-score' );
+		this.shootingAudio = document.getElementById( 'shooting-audio' );
+		this.missedAudio = document.getElementById( 'missed-audio' );
+		this.backgroundMusic = document.getElementById( 'background-music' );
+		this.startBtnEl = document.getElementById( 'start-game' );
+		this.containerHeight = this.container.offsetHeight;
+		this.score = 0;
+		this.missedCount = 0;
+		this.ballCount = 30;
+		this.dropBallSpeed = 1;
 
 	}
 
+	/**
+	 * Create ball.
+	 *
+	 * @return {Object} {HTMLDivElement} ballEl Ball element.
+	 */
 	createBall() {
 		const ballEl = document.createElement( 'div' );
 		const points = this.getRandomNo( 100 );
@@ -52,7 +79,16 @@ class Game {
 
 	}
 
-	dropBall( ballEl, leftPos, endPos, speed ) {
+	/**
+	 * Drop Ball
+	 *
+	 * @param {Object} ballEl Ball element.
+	 * @param {int} leftPos Left position.
+	 * @param {int} endPos End position.
+	 *
+	 * @return {void}
+	 */
+	dropBall( ballEl, leftPos, endPos ) {
 		let currentTop = 0;
 
 		ballEl.style.left = leftPos + 'px';
@@ -70,14 +106,17 @@ class Game {
 				currentTop++;
 				ballEl.style.top = currentTop + 'px';
 			}
-		}, speed );
+		}, this.dropBallSpeed );
 
 		ballEl.setAttribute( 'data-interval-id', interval );
 
 	}
 
-
-
+	/**
+	 * Shootball
+	 *
+	 * @param {Event} event Event.
+	 */
 	shootBall( event ) {
 
 		const targetEl = event.target;
@@ -92,11 +131,22 @@ class Game {
 		targetEl.remove();
 	}
 
+	/**
+	 * Add Score
+	 *
+	 * @param {int} points Points
+	 */
 	addScore( points ) {
 		this.score += parseInt( points );
 		this.scoreEl.textContent = this.score.toString();
 	}
 
+	/**
+	 * Random no.
+	 *
+	 * @param {int} range Range.
+	 * @return {number} Number
+	 */
 	getRandomNo( range ) {
 		return Math.floor( Math.random() * range )
 	}
